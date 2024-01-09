@@ -7,7 +7,20 @@
   tasks:
     - name: Update apt package cache
       apt:
-        update_cache: yes   
+        update_cache: yes 
+        
+    - name: Ensure Docker SDK for Python is installed
+      become: yes
+      pip:
+        name: docker
+        state: present
+
+    - name: Ensure Docker is installed
+      become: yes
+      apt:
+        name: docker.io
+        state: present
+      when: ansible_os_family == 'Debian'
 
     - name: Build Docker Image
       command: docker build -t petstore .
