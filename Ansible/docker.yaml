@@ -19,7 +19,7 @@
 
     - name: Log in to Docker Hub
       docker_login:
-        registry_url: https://index.docker.io/v1/
+        registry_url: https://hub.docker.com/
         username: mathew.francis@indiumsoft.com
         password: dckr_pat_CI_icVkceRnH-yd-cKAKcsoH6y0
       ignore_errors: yes
